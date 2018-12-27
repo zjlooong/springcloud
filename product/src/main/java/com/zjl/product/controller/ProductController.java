@@ -1,5 +1,6 @@
 package com.zjl.product.controller;
 
+import com.zjl.product.dto.CartDTO;
 import com.zjl.product.entity.ProductCategory;
 import com.zjl.product.entity.ProductInfo;
 import com.zjl.product.service.ProductCategoryService;
@@ -9,9 +10,7 @@ import com.zjl.product.vo.ProductInfoVO;
 import com.zjl.product.vo.ProductVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,4 +53,18 @@ public class ProductController {
         return InvokeResult.success(productVOs);
     }
 
+    /**
+     * 获取商品列表（给订单服务使用）
+     * @param products
+     * @return
+     */
+    @PostMapping("listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody List<String> products){
+        return productService.findList(products);
+    }
+
+    @PostMapping("decreaseStock")
+    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
+        productService.decreaseStock(cartDTOList);
+    }
 }

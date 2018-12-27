@@ -3,6 +3,7 @@ package com.zjl.order.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 @Table
 @Entity
@@ -22,10 +23,10 @@ public class OrderDetail {
     private String productName;
 
     //商品单价
-    private String productPrice;
+    private BigDecimal productPrice;
 
     //商品数量
-    private String productQuantity;
+    private Integer productQuantity;
 
     //商品小图
     private String productIcon;
@@ -62,19 +63,19 @@ public class OrderDetail {
         this.productName = productName;
     }
 
-    public String getProductPrice() {
+    public BigDecimal getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(BigDecimal productPrice) {
         this.productPrice = productPrice;
     }
 
-    public String getProductQuantity() {
+    public Integer getProductQuantity() {
         return productQuantity;
     }
 
-    public void setProductQuantity(String productQuantity) {
+    public void setProductQuantity(Integer productQuantity) {
         this.productQuantity = productQuantity;
     }
 
