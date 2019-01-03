@@ -1,1 +1,5 @@
 client/.idea/workspace.xml
+order/order-common/target/
+order/order-client/target/
+product/common/target/
+product/client/target/
