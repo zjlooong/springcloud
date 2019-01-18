@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: order
+  jpa:
+    show-sql: true
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+
