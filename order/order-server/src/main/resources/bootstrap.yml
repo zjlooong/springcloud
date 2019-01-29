@@ -3,10 +3,21 @@ spring:
     name: order
   jpa:
     show-sql: true
+  #远程配置 采用order-dev的配置（项目名+profile名）
   cloud:
     config:
       discovery:
         enabled: true
         service-id: CONFIG
       profile: dev
+    stream:
+      bindings:
+        myMessage:
+          group: order
+          content-type: application/json
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
