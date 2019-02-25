@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: user
+  #远程配置 采用order-dev的配置（项目名+profile名）
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev

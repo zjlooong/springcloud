@@ -12,7 +12,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-# ±©Â¶bus_refreshµÈËùÓĞ½Ó¿Ú
+# æš´éœ²bus_refreshç­‰æ‰€æœ‰æ¥å£
 management:
   endpoints:
     web:

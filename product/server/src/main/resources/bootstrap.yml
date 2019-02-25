@@ -1,0 +1,14 @@
+#server:
+#  port: 12002
+spring:
+  application:
+    name: product
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug

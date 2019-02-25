@@ -20,4 +20,36 @@ spring:
     port: 5672
     username: guest
     password: guest
-
+  zipkin:
+    base-url: http://localhost:9411
+    sender:
+      type: web
+  sleuth:
+    sampler:
+    # 默认发送10%的请求到zipkin 抽样，这里开发环境1代表100%
+      probability: 1
+hystrix:
+  command:
+    default:
+      # 设置默认超时时间
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+      # 熔断机制打开 10次内超过60%的错误则启动链路熔断窗口，计时时间10000s 之后放开尝试，若成功则关闭链路熔断，失败则重新计时
+      circuitBreaker:
+        enabled: true
+        requestVolumeThreshold: 10
+        sleepWindowInMilliseconds: 10000
+        errorThresholdPercentage: 60
+    getProductInfoList:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
