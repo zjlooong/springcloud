@@ -8,10 +8,23 @@ spring:
           uri: https://github.com/zjlooong/config-repo.git
           username: zjloong@qq.com
           password: zjl950221
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        #配置启动是否注册服务
+        register: true
+        # 配置 Spring Boot 服务的主机地址，也可以不进行配置，默认本机地址
+        # hostname: 13001
+        service-name: ${spring.application.name}
+        #spring.cloud.consul.discovery.healthCheckPath配置 Consul 健康检查地址，Actuator 组件帮我们进行了实现，所以我们不需要额外的实现，地址在服务启动的时候，打印信息里面可以看到。
+        #spring.cloud.consul.discovery.healthCheckInterval配置 Consul 健康检查频率，也就是心跳频率。
+        #spring.cloud.consul.discovery.tags配置 Consul 注册服务的 Tags，设置为urlprefix-/serviceName的格式，是自动注册到 Fabio 集群中。
+        #spring.cloud.consul.discovery.instanceId配置 Consul 注册服务 ID
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
 # 暴露bus_refresh等所有接口
 management:
   endpoints:

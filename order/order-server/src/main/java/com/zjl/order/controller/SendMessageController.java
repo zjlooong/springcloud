@@ -1,6 +1,5 @@
 package com.zjl.order.controller;
 
-import com.netflix.discovery.converters.Auto;
 import com.zjl.order.dto.OrderDto;
 import com.zjl.order.message.StreamClient;
 import org.springframework.beans.factory.annotation.Autowired;

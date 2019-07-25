@@ -9,7 +9,8 @@ spring:
       discovery:
         enabled: true
         service-id: CONFIG
-      profile: dev
+      profile: con
+      fail-fast: true
     stream:
       bindings:
         myMessage:
